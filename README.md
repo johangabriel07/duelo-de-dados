@@ -1,22 +1,26 @@
-Jogo Duelo de Dados - Realizado para a disciplina de Sistemas Operacionais
+# 🎲 Duelo de Dados
 
-Duelo de Dados é um jogo multiplayer de terminal desenvolvido em **linguagem C**, utilizando **Sockets TCP (Winsock)** no modelo **cliente-servidor**.
+### Projeto desenvolvido para a disciplina de Sistemas Operacionais
 
-Dois jogadores se conectam ao servidor local, rolam dados por turnos e disputam rodadas para ver quem faz mais pontos. O jogo possui bônus aleatórios e uma rodada surpresa estratégica que pode mudar totalmente o resultado da partida.
+O **Duelo de Dados** é um jogo multiplayer de terminal feito em **C**, utilizando **Sockets TCP (Winsock)** no modelo **cliente-servidor**.
 
-Projeto criado para praticar **programação em C, redes de computadores, threads e concorrência**.
+A ideia é simples: dois jogadores se conectam ao servidor, rolam dados por turnos e disputam quem faz mais pontos. Apesar de ser um jogo leve, ele foi criado para praticar conceitos importantes como **redes, threads, sincronização e concorrência**, simulando comunicação real entre processos.
+
+Além das rodadas normais, o jogo possui bônus de sorte e uma **rodada surpresa**, que pode virar o placar de última hora.
 
 ---
 
-## 🕹️ Como funciona
+## 🕹️ Como o jogo funciona
 
-* 2 jogadores se conectam ao servidor
-* Cada rodada ambos rolam um dado
-* Maior valor vence a rodada
-* Empate → rolam novamente
-* São 3 rodadas no total
-* Na última rodada existe um evento surpresa onde um jogador pode trocar os pontos com o oponente
-* Quem tiver mais pontos no final vence
+* Dois jogadores entram na partida
+* Cada um rola o dado na sua vez
+* Quem tirar o maior valor vence a rodada
+* Se empatar, jogam novamente
+* A partida tem 3 rodadas
+* Na última rodada, um jogador pode escolher trocar a pontuação com o oponente
+* Quem tiver mais pontos no final ganha
+
+Simples, mas com aquele fator surpresa 😄
 
 ---
 
@@ -24,9 +28,9 @@ Projeto criado para praticar **programação em C, redes de computadores, thread
 
 * Linguagem C
 * Winsock2 (TCP/IP)
-* Sockets
+* Programação com sockets
 * Threads (CreateThread)
-* Mutex (sincronização)
+* Mutex para sincronização
 * Execução via terminal (console)
 
 ---
@@ -36,8 +40,8 @@ Projeto criado para praticar **programação em C, redes de computadores, thread
 ```
 duelo-de-dados/
 │
-├── server.c   -> servidor do jogo
-├── client.c   -> cliente do jogador
+├── server.c   -> responsável por gerenciar a partida
+├── client.c   -> programa usado pelos jogadores
 └── README.md
 ```
 
@@ -45,15 +49,15 @@ duelo-de-dados/
 
 ## 💻 Como compilar (Windows)
 
-### Usando GCC / MinGW
+Usando **GCC / MinGW**:
 
-Compile o servidor:
+Servidor:
 
 ```
 gcc server.c -o server -lws2_32
 ```
 
-Compile o cliente:
+Cliente:
 
 ```
 gcc client.c -o client -lws2_32
@@ -63,20 +67,20 @@ gcc client.c -o client -lws2_32
 
 ## ▶️ Como executar
 
-### 1. Inicie o servidor
+1. Inicie o servidor:
 
 ```
 server.exe
 ```
 
-### 2. Abra dois terminais e execute o cliente em cada um
+2. Abra dois terminais diferentes e execute:
 
 ```
 client.exe
 client.exe
 ```
 
-Cada janela será um jogador.
+Cada terminal será um jogador conectado ao servidor.
 
 ---
 
@@ -90,31 +94,24 @@ Cada janela será um jogador.
 
 ---
 
-## 📚 Conceitos praticados
+## 📚 O que foi praticado neste projeto
 
-Este projeto envolve:
+Durante o desenvolvimento foram aplicados conceitos de:
 
-* Comunicação cliente-servidor
-* Programação em rede com TCP
-* Sincronização de múltiplas threads
-* Manipulação de sockets
-* Lógica de jogo
-* Estruturas básicas em C
+* Cliente-servidor
+* Comunicação em rede com TCP
+* Concorrência e múltiplas threads
+* Sincronização com mutex
+* Organização de lógica de jogo em C
+* Interação via terminal
 
 ---
-
-## 📸 Demonstração
-
-Você pode adicionar prints do jogo aqui:
-
-```
-![Gameplay](prints/jogo.png)
-```
 
 ---
 
 ## 👨‍💻 Autores
 
-Eduarda Pereira de Morares
-Johan Gabriel da Silva dos Santos
-Projeto acadêmico para a disciplina de Sistemas Operacionais
+* Eduarda Pereira de Moraes
+* Johan Gabriel da Silva dos Santos
+
+Projeto acadêmico desenvolvido para a disciplina de **Sistemas Operacionais**.
