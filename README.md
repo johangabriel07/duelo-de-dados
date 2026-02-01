@@ -1,117 +1,83 @@
-# 🎲 Duelo de Dados
+# Duelo de Dados
 
-### Projeto desenvolvido para a disciplina de Sistemas Operacionais
+Projeto desenvolvido para a disciplina de Sistemas Operacionais.
 
-O **Duelo de Dados** é um jogo multiplayer de terminal feito em **C**, utilizando **Sockets TCP (Winsock)** no modelo **cliente-servidor**.
+Duelo de Dados é um jogo multiplayer de terminal feito em C, utilizando sockets TCP (Winsock) no modelo cliente-servidor. Dois jogadores se conectam ao servidor local e disputam partidas baseadas na rolagem de dados, acumulando pontos a cada rodada.
 
-A ideia é simples: dois jogadores se conectam ao servidor, rolam dados por turnos e disputam quem faz mais pontos. Apesar de ser um jogo leve, ele foi criado para praticar conceitos importantes como **redes, threads, sincronização e concorrência**, simulando comunicação real entre processos.
+O objetivo principal do projeto foi praticar programação em rede, comunicação entre processos, uso de threads e sincronização, aplicando conceitos vistos em aula de forma prática.
 
-Além das rodadas normais, o jogo possui bônus de sorte e uma **rodada surpresa**, que pode virar o placar de última hora.
+## Como o jogo funciona
 
----
+Dois jogadores se conectam ao servidor.
+Cada jogador rola o dado na sua vez.
+Quem tirar o maior valor vence a rodada.
+Se houver empate, ambos jogam novamente.
+A partida possui três rodadas no total.
+Na última rodada existe um evento surpresa onde um jogador pode escolher trocar sua pontuação com a do oponente.
+Ao final, vence quem tiver mais pontos.
 
-## 🕹️ Como o jogo funciona
-
-* Dois jogadores entram na partida
-* Cada um rola o dado na sua vez
-* Quem tirar o maior valor vence a rodada
-* Se empatar, jogam novamente
-* A partida tem 3 rodadas
-* Na última rodada, um jogador pode escolher trocar a pontuação com o oponente
-* Quem tiver mais pontos no final ganha
-
-Simples, mas com aquele fator surpresa 😄
-
----
-
-## ⚙️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 * Linguagem C
 * Winsock2 (TCP/IP)
-* Programação com sockets
+* Sockets
 * Threads (CreateThread)
 * Mutex para sincronização
-* Execução via terminal (console)
+* Execução via terminal
 
----
-
-## 📁 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 duelo-de-dados/
-│
-├── server.c   -> responsável por gerenciar a partida
-├── client.c   -> programa usado pelos jogadores
+├── server.c
+├── client.c
 └── README.md
 ```
 
----
+## Como compilar (Windows)
 
-## 💻 Como compilar (Windows)
+Usando GCC ou MinGW:
 
-Usando **GCC / MinGW**:
-
-Servidor:
+Compilar o servidor:
 
 ```
 gcc server.c -o server -lws2_32
 ```
 
-Cliente:
+Compilar o cliente:
 
 ```
 gcc client.c -o client -lws2_32
 ```
 
----
+## Como executar
 
-## ▶️ Como executar
-
-1. Inicie o servidor:
+Primeiro execute o servidor:
 
 ```
 server.exe
 ```
 
-2. Abra dois terminais diferentes e execute:
+Depois abra dois terminais diferentes e execute o cliente em cada um:
 
 ```
 client.exe
 client.exe
 ```
 
-Cada terminal será um jogador conectado ao servidor.
+Cada terminal representará um jogador.
 
----
+## Conceitos praticados
 
-## 🎮 Controles
-
-* Pressione **Enter** para rolar o dado
-* Na rodada surpresa:
-
-  * `s` → trocar pontos
-  * `n` → manter pontos
-
----
-
-## 📚 O que foi praticado neste projeto
-
-Durante o desenvolvimento foram aplicados conceitos de:
-
-* Cliente-servidor
-* Comunicação em rede com TCP
+* Comunicação cliente-servidor
+* Programação em rede com TCP
 * Concorrência e múltiplas threads
 * Sincronização com mutex
-* Organização de lógica de jogo em C
-* Interação via terminal
+* Lógica de jogo em C
 
----
+## Autores
 
----
+Eduarda Pereira de Moraes
+Johan Gabriel da Silva dos Santos
 
-## 👨‍💻 Autores
-
-* Eduarda Pereira de Moraes
-* Johan Gabriel da Silva dos Santos
-
-Projeto acadêmico desenvolvido para a disciplina de **Sistemas Operacionais**.
+Projeto acadêmico da disciplina de Sistemas Operacionais.
